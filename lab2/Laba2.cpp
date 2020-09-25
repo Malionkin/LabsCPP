@@ -1,7 +1,7 @@
 #include <iostream>
 #include <algorithm>
 using namespace std;
-const int maxSize(15);       // ввожу константу на максимальный размер массива, прижелании можно поменять
+const int maxSize(100);       // ввожу константу на максимальный размер массива, прижелании можно поменять
 int main()
 {
     cout << "Vvedite kolichestvo elementov massiva, no ne bolshe " << maxSize << endl;
