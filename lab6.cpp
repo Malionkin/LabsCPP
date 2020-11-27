@@ -1,3 +1,6 @@
+<<<<<<< HEAD
+
+=======
 #include <iostream>
 using namespace std;
 
@@ -81,3 +84,4 @@ ProperFraction(-4,-5).Print();
 
 return 0;
 }
+>>>>>>> Lab6
