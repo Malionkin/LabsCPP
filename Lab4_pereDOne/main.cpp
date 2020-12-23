@@ -19,62 +19,62 @@ char* strCat(char *strDest, const char *strSrs)
 }
 
 int main() {
-  char strDest[maxSize];
+  char *strDest = new char[maxSize];
   cout << "Enter the 1'st string!" << endl;
   cin >> strDest;
-  char strSrs[maxSize];
+  char *strSrs = new char[maxSize];
   cout << "Enter the 2'nd string!" << endl;
   cin >> strSrs;
   cout << strCat(strDest, strSrs) << endl;
   cout << "1'st task is done!" << endl;
 
-ifstream fin;
-fin.open("C:\\Users\\Xiaomi\\untitled21\\input.txt");
-char ch;
+  ifstream fin;
+  fin.open("C:\\Users\\Xiaomi\\untitled21\\input.txt");
+  char ch;
 
-int alphabet [28] = {0};
-vector<char> minword;
-vector<char> word;
-int counter = 0;
-int min_symbols = maxSize;
-while(fin.get(ch))
-{
-  if (ch != ' ' && ch != '\n')
+  int alphabet [28] = {0};
+  vector<char> minword;
+  vector<char> word;
+  int counter = 0;
+  int min_symbols = maxSize;
+  while(fin.get(ch))
   {
-    if(alphabet[ch - 'a'] == 0)
+    if (ch != ' ' && ch != '\n')
     {
-      counter++;
+      if(alphabet[ch - 'a'] == 0)
+      {
+        counter++;
+      }
+      alphabet[ch - 'a'] = 1;
+      word.push_back(ch);
     }
-    alphabet[ch - 'a'] = 1;
-    word.push_back(ch);
-  }
-  else
-  {
-    if(counter == 0){continue;}
-    if(counter == 0){continue;}
-    if(counter<min_symbols)
+    else
     {
-      min_symbols = counter;
-      minword = word;
+      if(counter == 0){continue;}
+      if(counter == 0){continue;}
+      if(counter<min_symbols)
+      {
+        min_symbols = counter;
+        minword = word;
+      }
+      for (int i = 0; i < 28; i++)
+      {
+        alphabet[i] = 0;
+      }
+      counter = 0;
+      word.clear();
     }
-   for (int i = 0; i < 28; i++)
-   {
-     alphabet[i] = 0;
-   }
-   counter = 0;
-   word.clear();
-  }
 
-}
+  }
   if(counter<min_symbols && counter !=0)
   {
     min_symbols = counter;
     minword = word;
   }
-for (int i = 0; i < minword.size();i++)
-{
-  cout << minword[i];
-}
-cout << endl;
+  for (int i = 0; i < minword.size();i++)
+  {
+    cout << minword[i];
+  }
+  cout << endl;
   return 0;
 }
